@@ -1,0 +1,19 @@
+name: Deploy to staging
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  redeploy_everything:
+    runs-on: ubuntu-latest
+    name: Deploying everything to staging cluster
+    steps:
+      - run: |
+          echo ${{ secrets.CIPHERONE }} &> ~/ssh_key
+          ssh -i ~/ssh_key root@98.84.144.166
+          cd one/mono/delpoymono && git pull 
+          pnpm install 
+          pnpm run build 
+          pm2 restart ws-server 
+          pm2 restart http-server
