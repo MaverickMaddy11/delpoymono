@@ -10,7 +10,9 @@ jobs:
     name: Deploying everything to staging cluster
     steps:
       - run: |
+          mkdir .ssh
           echo "${{ secrets.CIPHERONE }}" &> ~/ssh_key
+          echo "${{ secrets.KNOWN_HOST }}" &> ~/ssh/known_hosts
           ssh -i ~/ssh_key root@98.84.144.166
           cd one/mono/delpoymono && git pull 
           pnpm install 
