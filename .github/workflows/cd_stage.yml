@@ -18,7 +18,7 @@ jobs:
           echo "${{ secrets.KNOWN_HOST }}" &> ~/.ssh/known_hosts
           chmod 700 ~/.ssh/known_hosts
           ssh -i ~/ssh_key ubuntu@98.84.144.166 -t "
-          cd ~/one/mono/delpoymono && git pull &&
+          cd ~/one/mono/delpoymono && git pull origin main &&
           npm i -g pnpm &&
           pnpm install &&
           pnpm run build &&
