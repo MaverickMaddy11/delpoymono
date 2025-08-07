@@ -5,7 +5,9 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.json("hello there man ");
+  res.json(
+    "hello there man , this is teh first time i am updating from CI/CD pipeline "
+  );
 });
 
 app.post("/signup", (req, res) => {
