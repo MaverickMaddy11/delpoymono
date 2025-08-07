@@ -19,7 +19,7 @@ jobs:
           chmod 700 ~/.ssh/known_hosts
           ssh -i ~/ssh_key ubuntu@98.84.144.166 -t "
           cd ~/one/mono/delpoymono && git pull origin main &&
-          export PATH = /home/ubuntu/.nvm/versions/node/v23.11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin && 
+          export PATH=/home/ubuntu/.nvm/versions/node/v23.11.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin && 
           npm i -g pnpm &&
           pnpm install &&
           pnpm run build &&
